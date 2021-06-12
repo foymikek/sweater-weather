@@ -3,6 +3,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
 
+gem 'faraday'
+gem 'figaro'
+gem 'factory_bot_rails'
+gem 'faker'
+gem 'fast_jsonapi'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.5'
 # Use postgresql as the database for Active Record
@@ -31,10 +37,21 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 5.0.0'
+  gem 'pry'
+  gem 'shoulda-matchers'
 end
 
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'simplecov'
+end
+
+group :test do
+  gem 'webmock'
+  gem 'vcr'
 end
 
 

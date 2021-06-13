@@ -5,9 +5,15 @@ class HourlyWeather
               :icon
 
   def initialize(data)
-    @time        = Time.at(data[:dt]).strftime("%m/%d/%Y at %I:%M%p")
+    @time        = time_attribute(data[:dt])
     @temperature = data[:temp]
     @conditions  = data[:weather][0][:description]
-    @icon       = data[:weather][0][:icon]
+    @icon        = data[:weather][0][:icon]
   end
+
+  def time_attribute(raw_time)
+    Time.at(raw_time)
+    .strftime("%m/%d/%Y at %I:%M%p")
+  end
+
 end

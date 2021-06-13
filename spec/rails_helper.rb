@@ -62,3 +62,136 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
+end
+
+VCR.configure do |config|
+  config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+  config.hook_into :webmock
+  config.filter_sensitive_data('weather_api_key') { ENV['weather_api_key'] }
+  config.filter_sensitive_data('map_api_key') { ENV['map_api_key'] }
+  # config.default_cassette_options = {re_record_interval: 7.days}
+  # config.allow_http_connections_when_no_cassette = true
+  config.configure_rspec_metadata!
+end
+
+def daily_weather_poro_input
+  {
+    :dt=>1623610800,
+    :sunrise=>1623583887,
+    :sunset=>1623637732,
+    :moonrise=>1623593160,
+    :moonset=>1623648480,
+    :moon_phase=>0.1,
+    :temp=>{:day=>88.3, :min=>67.41, :max=>93.36, :night=>77.58, :eve=>90.95, :morn=>69.75},
+    :feels_like=>{:day=>87.28, :night=>76.96, :eve=>87.24, :morn=>68.45},
+    :pressure=>1009,
+    :humidity=>36,
+    :dew_point=>57.99,
+    :wind_speed=>15.77,
+    :wind_deg=>151,
+    :wind_gust=>22.73,
+    :weather=>[{:id=>800, :main=>"Clear", :description=>"clear sky", :icon=>"01d"}],
+    :clouds=>0,
+    :pop=>0.2,
+    :uvi=>11.86
+  }
+end
+
+def hourly_weather_poro_input
+  {
+    :dt=>1623607200,
+    :temp=>88.43,
+    :feels_like=>86.76,
+    :pressure=>1010,
+    :humidity=>33,
+    :dew_point=>55.69,
+    :uvi=>10.97,
+    :clouds=>0,
+    :visibility=>10000,
+    :wind_speed=>6.55,
+    :wind_deg=>103,
+    :wind_gust=>8.46,
+    :weather=>[{:id=>800, :main=>"Clear", :description=>"clear sky", :icon=>"01d"}],
+    :pop=>0
+  }
+end
+
+def current_weather_poro_input
+  {
+    :dt=>1623609672,
+    :sunrise=>1623583887,
+    :sunset=>1623637732,
+    :temp=>88.3,
+    :feels_like=>87.28,
+    :pressure=>1009,
+    :humidity=>36,
+    :dew_point=>57.99,
+    :uvi=>11.86,
+    :clouds=>0,
+    :visibility=>10000,
+    :wind_speed=>1.01,
+    :wind_deg=>126,
+    :wind_gust=>5.99,
+    :weather=>[{:id=>800, :main=>"Clear", :description=>"clear sky", :icon=>"01d"}]
+  }
+end
+
+def lat_n_lng_poro_input
+  {
+    :info=>{:statuscode=>0, :copyright=>{:text=>"© 2021 MapQuest, Inc.", :imageUrl=>"http://api.mqcdn.com/res/mqlogo.gif", :imageAltText=>"© 2021 MapQuest, Inc."}, :messages=>[]},
+ :options=>{:maxResults=>-1, :thumbMaps=>true, :ignoreLatLngInput=>false},
+ :results=>
+  [{:providedLocation=>{:location=>"denver, co"},
+    :locations=>
+     [{:street=>"",
+       :adminArea6=>"",
+       :adminArea6Type=>"Neighborhood",
+       :adminArea5=>"Denver",
+       :adminArea5Type=>"City",
+       :adminArea4=>"Denver County",
+       :adminArea4Type=>"County",
+       :adminArea3=>"CO",
+       :adminArea3Type=>"State",
+       :adminArea1=>"US",
+       :adminArea1Type=>"Country",
+       :postalCode=>"",
+       :geocodeQualityCode=>"A5XAX",
+       :geocodeQuality=>"CITY",
+       :dragPoint=>false,
+       :sideOfStreet=>"N",
+       :linkId=>"282041090",
+       :unknownInput=>"",
+       :type=>"s",
+       :latLng=>{:lat=>39.738453, :lng=>-104.984853},
+       :displayLatLng=>{:lat=>39.738453, :lng=>-104.984853},
+       :mapUrl=>"http://www.mapquestapi.com/staticmap/v5/map?key=XKrd3r5KBbA81mysYlkh1yrvF8lSSSN4&type=map&size=225,160&locations=39.738453,-104.984853|marker-sm-50318A-1&scalebar=true&zoom=12&rand=804248488"},
+      {:street=>"",
+       :adminArea6=>"",
+       :adminArea6Type=>"Neighborhood",
+       :adminArea5=>"",
+       :adminArea5Type=>"City",
+       :adminArea4=>"Denver County",
+       :adminArea4Type=>"County",
+       :adminArea3=>"CO",
+       :adminArea3Type=>"State",
+       :adminArea1=>"US",
+       :adminArea1Type=>"Country",
+       :postalCode=>"",
+       :geocodeQualityCode=>"A4XAX",
+       :geocodeQuality=>"COUNTY",
+       :dragPoint=>false,
+       :sideOfStreet=>"N",
+       :linkId=>"282932003",
+       :unknownInput=>"",
+       :type=>"s",
+       :latLng=>{:lat=>39.738453, :lng=>-104.984853},
+       :displayLatLng=>{:lat=>39.738453, :lng=>-104.984853},
+       :mapUrl=>"http://www.mapquestapi.com/staticmap/v5/map?key=XKrd3r5KBbA81mysYlkh1yrvF8lSSSN4&type=map&size=225,160&locations=39.738453,-104.984853|marker-sm-50318A-2&scalebar=true&zoom=9&rand=1607899640"}]}]
+  }
+end

@@ -1,6 +1,5 @@
 class Api::V1::ForecastController < ApplicationController
   def index
-    # require 'pry'; binding.pry
     location = params[:location]
 
     conn = Faraday.new("http://www.mapquestapi.com") do |f|
@@ -13,16 +12,15 @@ class Api::V1::ForecastController < ApplicationController
     
     data = JSON.parse(response.body, symbolize_names: true)
 
-    lat = data[:results][0][:locations][0][:latLng][:lat]
-    lng = data[:results][0][:locations][0][:latLng][:lng]
+    lat_n_lng = LatNLng.new(data)
     
     conn = Faraday.new(url: 'http://api.openweathermap.org') do |f|
       f.params['appid'] = ENV['weather_api_key']
     end
     
     response = conn.get('/data/2.5/onecall') do |req|
-        req.params['lat'] = lat
-        req.params['lon'] = lng
+        req.params['lat'] = lat_n_lng.lat
+        req.params['lon'] = lat_n_lng.lng
         req.params['units'] = 'imperial'
       end
 

@@ -81,6 +81,7 @@ RSpec.describe "forecast API" do
       
       expect(data[:data][:attributes]).to have_key :hourly_weather
       expect(data[:data][:attributes][:hourly_weather]).to be_an(Array)
+      expect(data[:data][:attributes][:hourly_weather].count).to eq(8)
       expect(data[:data][:attributes][:hourly_weather][0]).to be_an(Hash)
       
       expect(data[:data][:attributes][:hourly_weather][0]).to have_key :time

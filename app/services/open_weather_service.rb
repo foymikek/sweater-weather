@@ -7,16 +7,7 @@ class OpenWeatherService
           req.params['units'] = 'imperial'
       end
 
-      data = parse_json(response)
-      
-      daily_weather = data[:daily][0..4].map do |daily_data|
-        DailyWeather.new(daily_data)
-      end
-
-      hourly_weather = data[:hourly][0..7].map do |hourly_data|
-        HourlyWeather.new(hourly_data)
-      end
-      Weather.new(CurrentWeather.new(data), daily_weather, hourly_weather)
+      parse_json(response)
     end
 
     private

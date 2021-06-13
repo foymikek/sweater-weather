@@ -11,9 +11,9 @@ class CurrentWeather
               :icon
 
   def initialize(data)
-    @datetime    = Time.at(data[:current][:dt]).strftime("%m/%d/%Y at %I:%M%p")
-    @sunrise     = Time.at(data[:current][:sunrise]).strftime("%m/%d/%Y at %I:%M%p")
-    @sunset      = Time.at(data[:current][:sunset]).strftime("%m/%d/%Y at %I:%M%p")
+    @datetime    = datetime_attribute(data[:current][:dt])
+    @sunrise     = sunrise_attribute(data[:current][:sunrise])
+    @sunset      = sunset_attribute(data[:current][:sunset])
     @temperature = data[:current][:temp]
     @feels_like  = data[:current][:feels_like]
     @humidity    = data[:current][:humidity]
@@ -21,5 +21,20 @@ class CurrentWeather
     @visibility  = data[:current][:visibility]
     @conditions  = data[:current][:weather][0][:description]
     @icon        = data[:current][:weather][0][:icon]
+  end
+
+  def datetime_attribute(raw_time)
+    Time.at(raw_time)
+    .strftime("%m/%d/%Y at %I:%M%p")
+  end
+
+  def sunrise_attribute(raw_time)
+    Time.at(raw_time)
+    .strftime("%m/%d/%Y at %I:%M%p")    
+  end
+
+  def sunset_attribute(raw_time)
+    Time.at(raw_time)
+    .strftime("%m/%d/%Y at %I:%M%p")    
   end
 end

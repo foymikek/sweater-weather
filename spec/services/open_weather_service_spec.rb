@@ -1,31 +1,48 @@
 require 'rails_helper'
 
-RSpec.describe 'weather service' do
+RSpec.describe 'OPenWeatherService' do
   it 'can return json', :vcr do
-    place_id = "Denver"
+   lat = 39.738453
+   lng = -104.984853
 
-    json = WeatherService.get_three_day_forecast_db(place_id)
+   json = OpenWeatherService.forecast_query_db(lat, lng)
 
-    expect(json).to be_a(Hash)
-    expect(json).to have_key :forecast
-    expect(json[:forecast]).to be_a(Hash)
-    expect(json[:forecast]).to have_key :forecastday
-    expect(json[:forecast][:forecastday]).to be_an(Array)
-    expect(json[:forecast][:forecastday].first).to be_a(Hash)
+   expect(json).to be_a(Hash)
+   expect(json).to have_key :current
 
-    expect(json[:forecast][:forecastday].first).to have_key :astro
-    expect(json[:forecast][:forecastday].first[:astro]).to be_a(Hash)
-    expect(json[:forecast][:forecastday].first[:astro]).to have_key :sunrise
-    expect(json[:forecast][:forecastday].first[:astro][:sunrise]).to be_a(String)
-    expect(json[:forecast][:forecastday].first[:astro]).to have_key :sunset
-    expect(json[:forecast][:forecastday].first[:astro][:sunset]).to be_a(String)
-    expect(json[:forecast][:forecastday].first[:astro]).to have_key :moonrise
-    expect(json[:forecast][:forecastday].first[:astro][:moonrise]).to be_a(String)
-    expect(json[:forecast][:forecastday].first[:astro]).to have_key :moonset
-    expect(json[:forecast][:forecastday].first[:astro][:moonset]).to be_a(String)
-    expect(json[:forecast][:forecastday].first[:astro]).to have_key :moon_phase
-    expect(json[:forecast][:forecastday].first[:astro][:moon_phase]).to be_a(String)
-    expect(json[:forecast][:forecastday].first[:astro]).to have_key :moon_illumination
-    expect(json[:forecast][:forecastday].first[:astro][:moon_illumination]).to be_a(String)
+   expect(json[:current]).to be_a(Hash)
+   expect(json[:current]).to have_key :dt
+   expect(json[:current][:dt]).to be_a(Numeric)
+   
+   expect(json[:current]).to have_key :sunrise
+   expect(json[:current][:sunrise]).to be_a(Numeric)
+   
+   expect(json[:current]).to have_key :sunset
+   expect(json[:current][:sunset]).to be_a(Numeric)
+
+   expect(json[:current]).to have_key :temp
+   expect(json[:current][:temp]).to be_a(Numeric)
+   
+   expect(json[:current]).to have_key :feels_like
+   expect(json[:current][:feels_like]).to be_a(Numeric)
+   
+   expect(json[:current]).to have_key :humidity
+   expect(json[:current][:humidity]).to be_a(Numeric)
+   
+   expect(json[:current]).to have_key :uvi
+   expect(json[:current][:uvi]).to be_a(Numeric)
+   
+   expect(json[:current]).to have_key :visibility
+   expect(json[:current][:visibility]).to be_a(Numeric)
+
+   expect(json[:current]).to have_key :weather
+   expect(json[:current][:weather]).to be_an(Array)
+   expect(json[:current][:weather][0]).to be_a(Hash)
+
+   expect(json[:current][:weather][0]).to have_key :description
+   expect(json[:current][:weather][0][:description]).to be_a(String)
+
+   expect(json[:current][:weather][0]).to have_key :icon
+   expect(json[:current][:weather][0][:icon]).to be_a(String)
   end
 end

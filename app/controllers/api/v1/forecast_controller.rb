@@ -1,13 +1,14 @@
 class Api::V1::ForecastController < ApplicationController
   def index
-    city = 'denver, co'
+    # require 'pry'; binding.pry
+    location = params[:location]
 
     conn = Faraday.new("http://www.mapquestapi.com") do |f|
         f.params['key'] = ENV['map_api_key']
       end
 
     response = conn.get("/geocoding/v1/address") do |r|
-        r.params['location'] = city
+        r.params['location'] = location
       end
     
     data = JSON.parse(response.body, symbolize_names: true)
@@ -38,8 +39,6 @@ class Api::V1::ForecastController < ApplicationController
     
     json_input = Weather.new(CurrentWeather.new(data), daily_weather, hourly_weather)
 
-    require 'pry'; binding.pry
-    response = render json: ForecastSerializer.new(json_input)
-    JSON.parse(response, symbolize_names: true)
+    render json: ForecastSerializer.new(json_input)
   end
 end

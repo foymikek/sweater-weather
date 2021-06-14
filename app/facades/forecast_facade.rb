@@ -23,19 +23,14 @@ class ForecastFacade
     end
 
     def book_forecast_query(location)
-    conn = Faraday.new("http://openlibrary.org") 
-    
-    response = conn.get("search.json?q=denver co") do |r|
-      r.params['location'] = location
-    end
-
-    book_info_poro_input = JSON.parse(response.body, symbolize_names: true)
-    book_info_poro = BookInfo.new(book_info_poro_input)
     lat_n_lng = ForecastFacade.location_coords(location)
+    book_weather_input = OpenWeatherService.forecast_query_db(lat_n_lng.lat, lat_n_lng.lng)
+    book_info_input = OpenBookService.books_by_location(location)
 
-    book_weather_poro_input = OpenWeatherService.forecast_query_db(lat_n_lng.lat, lat_n_lng.lng)
+    book_info_poro = BookInfo.new(book_info_input)
 
-    book_weather_poro = BookWeather.new(book_weather_poro_input)
+
+    book_weather_poro = BookWeather.new(book_weather_input)
     BookSearch.new(location, book_weather_poro, book_info_poro)
     end
   end

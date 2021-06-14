@@ -2,7 +2,7 @@ class OpenBookService
   class << self
     def books_by_location(location)
       response = conn.get("search.json?q=#{location}")
-        
+      
       parse_json(response)
     end
 

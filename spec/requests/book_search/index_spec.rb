@@ -7,7 +7,6 @@ RSpec.describe "openbook API" do
       quantity = 5
       get "/api/v1/book-search?location=#{location}&quantity=#{quantity}"
 
-      # require 'pry'; binding.pry
       expect(response.status).to eq(200)
       data     = JSON.parse(response.body, symbolize_names: true)
       
@@ -49,7 +48,18 @@ RSpec.describe "openbook API" do
       expect(data[:data][:attributes][:books][0]).to have_key :publisher
       expect(data[:data][:attributes][:books][0][:publisher]).to be_an(Array)
       expect(data[:data][:attributes][:books][0][:publisher][0]).to be_a(String)
+    end
 
+    it "requires quantity query" do
+      location = 'denver, co'
+      get "/api/v1/book-search?location=#{location}"
+       expect(response.status).to eq(403)
+    end
+    
+    it "requires location query" do
+      quantity = 5
+      get "/api/v1/book-search?quantity=#{quantity}"
+       expect(response.status).to eq(403)
     end
   end
 end

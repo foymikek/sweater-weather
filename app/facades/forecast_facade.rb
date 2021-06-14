@@ -21,5 +21,12 @@ class ForecastFacade
       
       LatNLng.new(data)
     end
+
+    def book_forecast_query(location)
+      lat_n_lng = ForecastFacade.location_coords(location)
+
+      data = OpenWeatherService.forecast_query_db(lat_n_lng.lat, lat_n_lng.lng)
+      BookWeather.new(data)
+    end
   end
 end

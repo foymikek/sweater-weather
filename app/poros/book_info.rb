@@ -10,9 +10,9 @@ class BookInfo
   def books_attribute(data)
     data[:docs][0..4].map do |book_info|
       {
-        isbn: data[:docs][0][:isbn],
-        title: data[:docs][0][:title],
-        publisher: data[:docs][0][:publisher]
+        isbn: book_info[:isbn],
+        title: book_info[:title],
+        publisher: book_info[:publisher]
       }
     end
   end

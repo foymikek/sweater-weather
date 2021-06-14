@@ -80,6 +80,40 @@ end
 #   config.configure_rspec_metadata!
 # end
 
+def book_info_poro_input
+  {
+    :num_found=>606,
+    :start=>0,
+    :numFoundExact=>true,
+    :docs=>[
+      {:title=>"Denver, Co",
+      :isbn=>["9780762507849", "0762507845"],
+      :publisher=>["Universal Map Enterprises"]
+      },
+      {
+        :title=>"Denver west, CO and Bailey, CO: Denver, CO",
+        :isbn=>["9780607620054", "0607620056"],
+        :publisher=>["USGS Branch of Distribution"]
+      },
+      {
+        :title=>"Denver East, CO and Castle Rock, CO: Denver, CO",
+        :isbn=>["0607620048", "9780607620047"],
+        :publisher=>["USGS Branch of Distribution"]
+      },
+      {
+        :title=>"University of Denver Co 2007",
+        :isbn=>["1427401683", "9781427401687"],
+        :publisher=>["College Prowler"]
+      },
+      {
+        :title=>"Denver Co Deluxe Flip Map",
+        :isbn=>["9780762557363", "0762557362"],
+        :publisher=>["Universal Map Enterprises"]
+      }
+    ]
+  }
+end
+
 def daily_weather_poro_input
   {
     :dt=>1623610800,

@@ -1,11 +1,11 @@
 class Api::V1::BooksController < ApplicationController
   def index
-    location =  params[:location]
+    location =  TripInfo.new(params[:location])
     # ForecastFacade.forecast_query(location)
     conn = Faraday.new("http://openlibrary.org") 
     
     response = conn.get("search.json?q=denver co") do |r|
-      r.params['location'] = location
+      r.params['location'] = location.destination
     end
     data = JSON.parse(response.body, symbolize_names: true)
     BookInfo.new(data)

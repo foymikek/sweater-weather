@@ -53,4 +53,21 @@ RSpec.describe 'Forecast Facade' do
       expect(hourly_weather_obj.time).to be_a(String)
     end
   end
+
+  it "can return a BookSearch obj" do
+    location = 'denver, co'
+    book_search_poro = ForecastFacade.book_forecast_query(location)
+
+    expect(book_search_poro).to be_a(BookSearch)
+    expect(book_search_poro.books).to be_an(Array)
+    expect(book_search_poro.books[0]).to be_a(Hash)
+    expect(book_search_poro.books[0]).to have_key :isbn
+    expect(book_search_poro.books[0][:isbn]).to be_an(Array)
+    expect(book_search_poro.books[0][:isbn][0]).to be_a(String)
+    expect(book_search_poro.books[0]).to have_key :title
+    expect(book_search_poro.books[0][:title]).to be_a(String)
+    expect(book_search_poro.books[0]).to have_key :publisher
+    expect(book_search_poro.books[0][:publisher]).to be_an(Array)
+    expect(book_search_poro.books[0][:publisher][0]).to be_a(String)
+  end
 end

@@ -27,12 +27,12 @@ RSpec.describe "openbook API" do
       expect(data[:data][:attributes]).to have_key :forecast
       expect(data[:data][:attributes][:forecast]).to be_a(Hash)
       expect(data[:data][:attributes][:forecast]).to have_key :summary
-      expect(data[:data][:attributes][:forecast][:sumary]).to be_a(String)
+      expect(data[:data][:attributes][:forecast][:summary]).to be_a(String)
       expect(data[:data][:attributes][:forecast]).to have_key :temperature
       expect(data[:data][:attributes][:forecast][:temperature]).to be_a(String)
       
       expect(data[:data][:attributes]).to have_key :total_books_found
-      expect(data[:data][:attributes][:forecast][:total_books_found]).to be_a(Numeric)
+      expect(data[:data][:attributes][:total_books_found]).to be_a(Numeric)
 
       expect(data[:data][:attributes]).to have_key :books
       expect(data[:data][:attributes][:books]).to be_an(Array)
@@ -47,7 +47,8 @@ RSpec.describe "openbook API" do
       expect(data[:data][:attributes][:books][0][:title]).to be_a(String)
       
       expect(data[:data][:attributes][:books][0]).to have_key :publisher
-      expect(data[:data][:attributes][:books][0][:publisher]).to be_a(String)
+      expect(data[:data][:attributes][:books][0][:publisher]).to be_an(Array)
+      expect(data[:data][:attributes][:books][0][:publisher][0]).to be_a(String)
 
     end
   end

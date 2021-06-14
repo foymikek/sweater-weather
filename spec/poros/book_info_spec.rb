@@ -1,9 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe 'CurrentWeather object' do
-  it 'abstracts and encapsulates CurrentWeather data that can be read' do
+RSpec.describe 'BookInfo object' do
+  it 'abstracts and encapsulates BookInfo data that can be read' do
     book_info_poro = BookInfo.new(book_info_poro_input)
 
+    expect(book_info_poro).to be_a(BookInfo)
     expect(book_info_poro.total_books_found).to eq(606)
     expect(book_info_poro.books.class).to eq(Array)
     expect(book_info_poro.books[0].class).to eq(Hash)

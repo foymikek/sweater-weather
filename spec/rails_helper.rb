@@ -80,6 +80,30 @@ end
 #   config.configure_rspec_metadata!
 # end
 
+def book_weather_poro_input
+  {:lat=>39.7385,
+ :lon=>-104.9849,
+ :timezone=>"America/Denver",
+ :timezone_offset=>-21600,
+ :current=>
+  {:dt=>1623692114,
+   :sunrise=>1623670286,
+   :sunset=>1623724156,
+   :temp=>87.01,
+   :feels_like=>85.57,
+   :pressure=>1005,
+   :humidity=>35,
+   :dew_point=>56.07,
+   :uvi=>11.16,
+   :clouds=>0,
+   :visibility=>10000,
+   :wind_speed=>1.99,
+   :wind_deg=>142,
+   :wind_gust=>5.99,
+   :weather=>[{:id=>800, :main=>"Clear", :description=>"clear sky", :icon=>"01d"}]}
+  }
+end
+
 def book_info_poro_input
   {
     :num_found=>606,

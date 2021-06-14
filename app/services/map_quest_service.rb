@@ -1,4 +1,4 @@
-class MapQuestService
+class MapQuestService < BaseService
   class << self
     def location_coords_db(location)
       response = conn.get("/geocoding/v1/address") do |r|

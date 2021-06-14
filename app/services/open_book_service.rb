@@ -1,4 +1,4 @@
-class OpenBookService
+class OpenBookService < BaseService
   class << self
     def books_by_location(location)
       response = conn.get("search.json?q=#{location}")

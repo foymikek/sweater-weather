@@ -1,4 +1,4 @@
-class OpenWeatherService
+class OpenWeatherService < BaseService
   class << self
     def forecast_query_db(lat, lng)
       response = conn.get('/data/2.5/onecall') do |req|

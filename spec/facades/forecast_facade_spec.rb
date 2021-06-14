@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 RSpec.describe 'Forecast Facade' do
   it 'can return a LatnLng object', :vcr do
     location = 'denver, co'

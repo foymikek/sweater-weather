@@ -4,17 +4,18 @@ RSpec.describe "Users" do
   describe "user endpoints" do 
     it "can return user info upon login" do
       user = User.new(
-        email: 'whatever@example.com',
-        password: 'password'
+        email: 'test123@example.com',
+        password: 'password123'
       )
       user.create_key
       user.save
 
       query_params = {
-          "email": "test@example.com",
+          "email": "test123@example.com",
           "password": "password123",
                       }
       post "/api/v1/sessions", params: query_params
+      
       expect(response).to be_successful
       expect(response.status).to eq(200)
       expect(response.content_type).to eq("application/json")

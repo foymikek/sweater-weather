@@ -31,7 +31,7 @@ RSpec.describe "Road Trip" do
       expect(trip_response[:data][:id]).to eq(nil)
 
       expect(trip_response[:data]).to have_key :type
-      expect(trip_response[:data][:type]).to eq('roadtrip')
+      expect(trip_response[:data][:type]).to eq('road_trip')
 
       expect(trip_response[:data]).to have_key :attributes
       expect(trip_response[:data][:attributes]).to be_a(Hash)

@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe "User controller" do
   describe "can process user information" do 
     it "can register user and return user information" do
+      User.destroy_all
+      
       query_params = {
           "email": "test@example.com",
           "password": "test_password",

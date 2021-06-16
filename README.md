@@ -42,7 +42,7 @@ get and post calls to: localhost:3000 in Postman
 
 ## Contact
 
-#### Sage Freeman-Gonzales: [LinkedIn](https://www.linkedin.com/in/michael-foy-707ba7b4/), [Email](mailto:foymikek@gmail.com), [GitHub](https://github.com/foymikek)
+#### Mike Foy: [LinkedIn](https://www.linkedin.com/in/michael-foy-707ba7b4/), [Email](mailto:foymikek@gmail.com), [GitHub](https://github.com/foymikek)
 
 <!-- Shields -->
 ![](https://img.shields.io/badge/Rails-5.2.4-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)

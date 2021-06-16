@@ -5,7 +5,6 @@ This project part of a Service-Oriented Architecture (SOA) application that prov
 ### Table of Contents
   - [How to Install Sweater Weather](#how-to-install-sweater-weather)
   - [Testing](#testing)
-  - [Learning Goals](#learning-goals)
   - [Licenses](#licenses)
   - [Contact](#contact)
 
@@ -35,17 +34,6 @@ get and post calls to: localhost:3000 in Postman
 
 * In order to run the tests, run `bundle exec rspec` in the command line and you should have all passing tests.
 
-## Learning Goals
-
-* Consume multiple external APIs
-
-  * Build API's that return JSON responses
-
-  * Refactor code for better code for improved organization/readability
-
-  * Utilize workflow: small commits and keep similar functionality on one branch
-
-  * Utilize code that adheres to the four pillars of OOP
   
 ## Licenses
 

@@ -231,42 +231,27 @@
           null
         ]
       },
-      "/Users/mikefoy/turing/3module/projects/sweater-weather/app/services/map_quest_service.rb": {
+      "/Users/mikefoy/turing/3module/projects/sweater-weather/app/poros/trip.rb": {
         "lines": [
           1,
           1,
-          1,
-          0,
-          0,
           null,
           null,
-          0,
           null,
           null,
           1,
           1,
           1,
           1,
-          null,
           1,
           null,
           null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          1,
           null,
           null,
           null
         ]
       }
     },
-    "timestamp": 1623814280
+    "timestamp": 1623814823
   }
 }

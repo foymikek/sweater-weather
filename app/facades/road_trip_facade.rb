@@ -2,7 +2,6 @@ class RoadTripFacade
   class << self
     def trip_info(origin, destination)
       data = MapQuestService.trip_duration_db(origin, destination)
-      require 'pry'; binding.pry
       travel_hour  = trip_duration(data[:formattedTime])
       weather_data = OpenWeatherService.forecast_query_db(
         data[:boundingBox][:lr][:lat],

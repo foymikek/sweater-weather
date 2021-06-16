@@ -35,5 +35,38 @@ RSpec.describe "User controller" do
       expect(user_info[:data][:attributes]).to have_key(:api_key)
       expect(user_info[:data][:attributes][:api_key]).to be_a(String)
     end
+
+    it "returns 401 if password confirmation does not match" do
+      User.destroy_all
+      
+      query_params = {
+          "email": "test@example.com",
+          "password": "test_password_blah_blah",
+          "password_confirmation": "test_password"
+                      }
+      post "/api/v1/users", params: query_params
+      expect(response).to_not be_successful
+      expect(response.status).to eq(401)
+    end
+
+    it "returns 400 if email already exists" do
+      User.destroy_all
+      user = User.new(
+        email: 'test123@example.com',
+        password: 'test_password',
+        password_confirmation: "test_password"
+      )
+      user.create_key
+      user.save
+      
+      query_params = {
+          "email": "test123@example.com",
+          "password": "test_password",
+          "password_confirmation": "test_password"
+                      }
+      post "/api/v1/users", params: query_params
+      expect(response).to_not be_successful
+      expect(response.status).to eq(400)
+    end
   end
 end

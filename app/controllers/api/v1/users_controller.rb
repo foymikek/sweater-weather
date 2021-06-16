@@ -9,7 +9,7 @@ class Api::V1::UsersController < ApplicationController
         render json: "Invalid Credentials", status: 400
       end
     else
-      render json: "Invalid password confirmation, please try again.", status: 401
+      render json: "Invalid Credentials, please try again.", status: 401
     end 
   end
 

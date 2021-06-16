@@ -12,4 +12,16 @@ RSpec.describe 'RoadTrip Facade' do
     expect(trip.weather_at_eta[:temperature]).to be_a(Numeric)
     expect(trip.weather_at_eta[:conditions]).to be_a(String)
   end
+
+  it "round hour up if min's more than 30" do
+    travel_time = "03:38:50"
+
+    expect(RoadTripFacade.trip_duration(travel_time)).to eq(4)
+  end
+
+  it "round hour down if min's less than 30" do
+    travel_time = "03:28:50"
+    
+    expect(RoadTripFacade.trip_duration(travel_time)).to eq(3)
+  end
 end

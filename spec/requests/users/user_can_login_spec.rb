@@ -53,6 +53,7 @@ RSpec.describe "Users" do
       post "/api/v1/users", params: query_params
       expect(response).to_not be_successful
       expect(response.status).to eq(401)
+      expect(response.body).to eq("Invalid Credentials, please try again.")
     end
   end
 end

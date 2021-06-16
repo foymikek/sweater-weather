@@ -54,5 +54,16 @@ RSpec.describe "Road Trip" do
       expect(trip_response[:data][:attributes][:weather_at_eta]).to have_key :conditions
       expect(trip_response[:data][:attributes][:weather_at_eta][:conditions]).to be_a(String)
     end
+
+    it 'if api_key does not exist, return 401 error', :vcr do 
+      query_params = {
+                  "origin": "Denver,CO",
+                  "destination": "Pueblo,CO",
+                  "api_key": "mr bo-jangles"
+                      }
+      post "/api/v1/road_trip", params: query_params
+      expect(response).to_not be_successful
+      expect(response.status).to eq(401)
+    end
   end
 end

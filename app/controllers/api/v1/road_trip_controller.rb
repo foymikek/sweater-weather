@@ -7,6 +7,8 @@ class Api::V1::RoadTripController < ApplicationController
       trip = RoadTripFacade.trip_info(params[:origin], params[:destination])
       
       render json: RoadTripSerializer.new(trip)
+    else 
+       render json: "Invalid Credentials", status: 401
     end
   end
 end

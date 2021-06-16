@@ -48,5 +48,25 @@ RSpec.describe "User controller" do
       expect(response).to_not be_successful
       expect(response.status).to eq(401)
     end
+
+    it "returns 400 if email already exists" do
+      User.destroy_all
+      user = User.new(
+        email: 'test123@example.com',
+        password: 'test_password',
+        password_confirmation: "test_password"
+      )
+      user.create_key
+      user.save
+      
+      query_params = {
+          "email": "test123@example.com",
+          "password": "test_password",
+          "password_confirmation": "test_password"
+                      }
+      post "/api/v1/users", params: query_params
+      expect(response).to_not be_successful
+      expect(response.status).to eq(400)
+    end
   end
 end

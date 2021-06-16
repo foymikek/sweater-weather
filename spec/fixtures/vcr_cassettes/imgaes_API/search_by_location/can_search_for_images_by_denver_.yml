@@ -1,0 +1,104 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.flickr.com/services/rest?api_key=8252019ab01a884b0c2f10e3b94fad19&format=json&method=flickr.photos.search&nojsoncallback=1&per_page=1&text=denver
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '234'
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 16 Jun 2021 03:46:40 GMT
+      Server:
+      - Apache/2.4.46 (Ubuntu)
+      Set-Cookie:
+      - ccc=%7B%22needsConsent%22%3Afalse%2C%22managed%22%3A0%2C%22changed%22%3A0%2C%22info%22%3A%7B%22cookieBlock%22%3A%7B%22level%22%3A0%2C%22blockRan%22%3A0%7D%7D%7D;
+        expires=Fri, 16-Jul-2021 03:46:40 GMT; Max-Age=2592000; path=/; domain=.flickr.com
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 d080bc95ab54e9eca177a7793658f680.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - ATL51-C1
+      X-Amz-Cf-Id:
+      - E5dxHZ1SOtRzYPRNHrmUZr3k5v8f7o0Gavgvc2t0YBBkfgFctn-amw==
+    body:
+      encoding: UTF-8
+      string: '{"photos":{"page":1,"pages":343187,"perpage":1,"total":343187,"photo":[{"id":"51250307508","owner":"124159081@N07","secret":"8b350bdbb1","server":"65535","farm":66,"title":"Faded","ispublic":1,"isfriend":0,"isfamily":0}]},"stat":"ok"}'
+  recorded_at: Wed, 16 Jun 2021 03:46:40 GMT
+- request:
+    method: get
+    uri: https://www.flickr.com/services/rest?api_key=8252019ab01a884b0c2f10e3b94fad19&format=json&method=flickr.photos.getInfo&nojsoncallback=1&page=1&per_page=1&photo_id=51250307508
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Date:
+      - Wed, 16 Jun 2021 03:46:40 GMT
+      Server:
+      - Apache/2.4.46 (Ubuntu)
+      Set-Cookie:
+      - ccc=%7B%22needsConsent%22%3Afalse%2C%22managed%22%3A0%2C%22changed%22%3A0%2C%22info%22%3A%7B%22cookieBlock%22%3A%7B%22level%22%3A0%2C%22blockRan%22%3A0%7D%7D%7D;
+        expires=Fri, 16-Jul-2021 03:46:40 GMT; Max-Age=2592000; path=/; domain=.flickr.com
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 c8b49146f241182963be450038fb13ee.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - ATL51-C1
+      X-Amz-Cf-Id:
+      - ogk0pIjAqOwWCFbwwFpAut7jxZxds4QQcen-dyi8N_MvCMn2-Ri1oA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"photo":{"id":"51250307508","secret":"8b350bdbb1","server":"65535","farm":66,"dateuploaded":"1623814323","isfavorite":0,"license":"0","safety_level":"0","rotation":0,"originalsecret":"9a4bf10758","originalformat":"jpg","owner":{"nsid":"124159081@N07","username":"geneseewyoming","realname":"John
+        Frantz","location":"Allentown, PA, USA","iconserver":"3893","iconfarm":4,"path_alias":null},"title":{"_content":"Faded"},"description":{"_content":"At
+        the Denver &amp; Rio Grande"},"visibility":{"ispublic":1,"isfriend":0,"isfamily":0},"dates":{"posted":"1623814323","taken":"2020-06-23
+        18:52:47","takengranularity":"0","takenunknown":"0","lastupdate":"1623814430"},"views":"1","editability":{"cancomment":0,"canaddmeta":0},"publiceditability":{"cancomment":1,"canaddmeta":0},"usage":{"candownload":1,"canblog":0,"canprint":0,"canshare":1},"comments":{"_content":"0"},"notes":{"note":[]},"people":{"haspeople":0},"tags":{"tag":[]},"location":{"latitude":"37.671159","longitude":"-106.631058","accuracy":"16","context":"0","locality":{"_content":"South
+        Fork"},"county":{"_content":"Rio Grande"},"region":{"_content":"Colorado"},"country":{"_content":"United
+        States"},"neighbourhood":{"_content":""}},"geoperms":{"ispublic":1,"iscontact":0,"isfriend":0,"isfamily":0},"urls":{"url":[{"type":"photopage","_content":"https:\/\/www.flickr.com\/photos\/124159081@N07\/51250307508\/"}]},"media":"photo"},"stat":"ok"}'
+  recorded_at: Wed, 16 Jun 2021 03:46:40 GMT
+recorded_with: VCR 6.0.0

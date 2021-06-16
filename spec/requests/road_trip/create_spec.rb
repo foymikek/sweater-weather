@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Road Trip" do
-  describe "happy path, index" do 
+  describe "happy path, index", :vcr do 
     it "trip details returns forecast info for destination info" do
       User.destroy_all
       User.create!(

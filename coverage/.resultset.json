@@ -195,7 +195,7 @@
           null,
           null,
           1,
-          1,
+          2,
           null,
           null,
           null,
@@ -231,6 +231,142 @@
           null
         ]
       },
+      "/Users/mikefoy/turing/3module/projects/sweater-weather/app/models/user.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/mikefoy/turing/3module/projects/sweater-weather/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/mikefoy/turing/3module/projects/sweater-weather/app/controllers/api/v1/road_trip_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/mikefoy/turing/3module/projects/sweater-weather/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/mikefoy/turing/3module/projects/sweater-weather/app/facades/road_trip_facade.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          0,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/mikefoy/turing/3module/projects/sweater-weather/app/services/map_quest_service.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          0,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/mikefoy/turing/3module/projects/sweater-weather/app/services/open_weather_service.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
       "/Users/mikefoy/turing/3module/projects/sweater-weather/app/poros/trip.rb": {
         "lines": [
           1,
@@ -250,8 +386,17 @@
           null,
           null
         ]
+      },
+      "/Users/mikefoy/turing/3module/projects/sweater-weather/app/serializers/road_trip_serializer.rb": {
+        "lines": [
+          1,
+          1,
+          2,
+          1,
+          null
+        ]
       }
     },
-    "timestamp": 1623814823
+    "timestamp": 1623815262
   }
 }

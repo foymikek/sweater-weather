@@ -36,7 +36,7 @@ RSpec.describe "User controller" do
       expect(user_info[:data][:attributes][:api_key]).to be_a(String)
     end
 
-    it "can register user and return user information" do
+    it "returns 401 if password confirmation does not match" do
       User.destroy_all
       
       query_params = {

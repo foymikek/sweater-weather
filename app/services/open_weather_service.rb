@@ -2,8 +2,8 @@ class OpenWeatherService
   class << self
     def forecast_query_db(lat, lng)
       response = conn.get('/data/2.5/onecall') do |req|
-          req.params['lat'] = lat
-          req.params['lon'] = lng
+          req.params['lat']   = lat
+          req.params['lon']   = lng
           req.params['units'] = 'imperial'
       end
 

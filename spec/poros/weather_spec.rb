@@ -31,4 +31,3 @@ RSpec.describe 'Weather object' do
     expect(weather_obj.hourly_weather.count).to eq(8)
   end
 end
-

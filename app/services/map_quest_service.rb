@@ -11,7 +11,7 @@ class MapQuestService
     def trip_duration_db(origin, destination)
       response = conn.get("/directions/v2/route") do |r|
         r.params['from'] = origin
-        r.params['to'] = destination
+        r.params['to']   = destination
       end 
       parse_json(response)[:route]
     end

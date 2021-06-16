@@ -3,7 +3,7 @@ class Image
               :image
 
   def initialize(data, location)
-    @id = nil
+    @id    = nil
     @image = {
       location: location,
       image_url: data[:photo][:urls][:url][0][:_content],

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Users" do
   describe "user endpoints" do 
     it "can return user info upon login" do
-      user = User.new(
+      user         = User.new(
         email: 'test123@example.com',
         password: 'password123'
       )
@@ -13,7 +13,7 @@ RSpec.describe "Users" do
       query_params = {
           "email": "test123@example.com",
           "password": "password123",
-                      }
+                    }
       post "/api/v1/sessions", params: query_params
       
       expect(response).to be_successful
@@ -38,7 +38,7 @@ RSpec.describe "Users" do
 
     it "returns 401 with invalid credentials" do
       User.destroy_all
-      user = User.new(
+      user         = User.new(
         email: 'test123@example.com',
         password: 'password123'
       )

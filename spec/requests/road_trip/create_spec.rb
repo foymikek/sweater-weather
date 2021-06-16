@@ -14,7 +14,7 @@ RSpec.describe "Road Trip" do
                   "origin": "Denver,CO",
                   "destination": "Gunnison,CO",
                   "api_key": "dc67de45f7a185f0baeb38135f96e7f062298b506033"
-                      }
+                    }
 
       post "/api/v1/road_trip", params: query_params
       
@@ -60,7 +60,7 @@ RSpec.describe "Road Trip" do
                   "origin": "Denver,CO",
                   "destination": "Pueblo,CO",
                   "api_key": "mr bo-jangles"
-                      }
+                    }
       post "/api/v1/road_trip", params: query_params
       expect(response).to_not be_successful
       expect(response.status).to eq(401)

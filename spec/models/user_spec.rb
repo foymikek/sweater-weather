@@ -11,7 +11,7 @@ describe User, type: :model do
     it 'can create an api key' do 
       User.destroy_all
       user = User.new(
-        email: 'test123@example.com',
+        email:    'test123@example.com',
         password: 'password123'
       )
       expect(user.create_key).to be_a(String)

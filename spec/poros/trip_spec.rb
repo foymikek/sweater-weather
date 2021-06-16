@@ -7,7 +7,6 @@ RSpec.describe 'Trip object' do
       "Gunnison,CO",
       trip_data,
       weather_data
-
     )
     
     expect(trip).to be_a(Trip)

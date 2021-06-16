@@ -4,7 +4,7 @@ RSpec.describe 'MapQuestService' do
   it 'location_coords_db: can return json', :vcr do
     location = "denver, co"
 
-    json = MapQuestService.location_coords_db(location)
+    json     = MapQuestService.location_coords_db(location)
     expect(json).to be_a(Hash)
     expect(json).to have_key :results
 
@@ -25,7 +25,7 @@ RSpec.describe 'MapQuestService' do
   end
 
   it 'trip_duration_db: can return json', :vcr do
-    json = MapQuestService.trip_duration_db('Denver,CO', 'Gunnison,CO')
+    json     = MapQuestService.trip_duration_db('Denver,CO', 'Gunnison,CO')
     
     expect(json).to be_a(Hash)
     expect(json).to have_key :formattedTime

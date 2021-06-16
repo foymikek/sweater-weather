@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'OPenWeatherService' do
   it 'can return json', :vcr do
-   lat = 39.738453
-   lng = -104.984853
+   lat  = 39.738453
+   lng  = -104.984853
 
    json = OpenWeatherService.forecast_query_db(lat, lng)
 

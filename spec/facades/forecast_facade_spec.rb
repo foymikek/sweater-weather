@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Forecast Facade' do
   it 'can return a LatnLng object', :vcr do
-    location = 'denver, co'
+    location  = 'denver, co'
     lat_n_lng = ForecastFacade.location_coords(location)
     
     expect(lat_n_lng).to be_an(LatNLng)
@@ -11,7 +11,7 @@ RSpec.describe 'Forecast Facade' do
   end
   
   it "can return a Weather object", :vcr do
-    location = 'denver, co'
+    location    = 'denver, co'
     weather_obj = ForecastFacade.forecast_query(location)
 
     expect(weather_obj).to be_a(Weather)

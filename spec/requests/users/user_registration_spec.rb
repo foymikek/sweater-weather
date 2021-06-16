@@ -9,13 +9,13 @@ RSpec.describe "User controller" do
           "email": "test@example.com",
           "password": "test_password",
           "password_confirmation": "test_password"
-                      }
+                    }
       post "/api/v1/users", params: query_params
       expect(response).to be_successful
       expect(response.status).to eq(200)
       expect(response.content_type).to eq("application/json")
       
-      user_info = JSON.parse(response.body, symbolize_names: true)
+      user_info    = JSON.parse(response.body, symbolize_names: true)
       expect(user_info).to be_a(Hash)
       expect(user_info).to have_key(:data)
       expect(user_info[:data]).to be_a(Hash)
@@ -43,15 +43,16 @@ RSpec.describe "User controller" do
           "email": "test@example.com",
           "password": "test_password_blah_blah",
           "password_confirmation": "test_password"
-                      }
+                    }
       post "/api/v1/users", params: query_params
+      
       expect(response).to_not be_successful
       expect(response.status).to eq(401)
     end
 
     it "returns 400 if email already exists" do
       User.destroy_all
-      user = User.new(
+      user         = User.new(
         email: 'test123@example.com',
         password: 'test_password',
         password_confirmation: "test_password"
@@ -63,8 +64,9 @@ RSpec.describe "User controller" do
           "email": "test123@example.com",
           "password": "test_password",
           "password_confirmation": "test_password"
-                      }
+                    }
       post "/api/v1/users", params: query_params
+
       expect(response).to_not be_successful
       expect(response.status).to eq(400)
     end

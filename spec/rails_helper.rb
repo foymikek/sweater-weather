@@ -82,6 +82,39 @@ end
 #   config.configure_rspec_metadata!
 # end
 
+def trip_data
+  {
+    :hasTollRoad=>false,
+    :hasBridge=>true,
+    :boundingBox=>{:lr=>{:lng=>-104.98484, :lat=>38.521}, :ul=>{:lng=>-106.92691, :lat=>39.738453}},
+    :distance=>198.425,
+    :hasTimedRestriction=>false,
+    :hasTunnel=>false,
+    :hasHighway=>true,
+    :index=>0,
+    :formattedTime=>"03:38:50"
+  }
+end
+
+def weather_data
+  {
+    :dt=>1623826800,
+    :temp=>71.85,
+    :feels_like=>70.48,
+    :pressure=>1019,
+    :humidity=>37,
+    :dew_point=>44.2,
+    :uvi=>0,
+    :clouds=>41,
+    :visibility=>10000,
+    :wind_speed=>12.3,
+    :wind_deg=>296,
+    :wind_gust=>15.95,
+    :weather=>[{:id=>802, :main=>"Clouds", :description=>"scattered clouds", :icon=>"03n"}],
+    :pop=>0
+  }
+end
+
 def daily_weather_poro_input
   {
     :dt=>1623610800,
